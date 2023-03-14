@@ -1,0 +1,27 @@
+{
+  "name": "i2u2",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --experimental-json-modules --exec babel-node index.js",
+    "debug": "set DEBUG=express:* nodemon --experimental-json-modules --exec babel-node index.js"
+  },
+  "keywords": [
+    "mahethekiller"
+  ],
+  "author": "mahethekiller",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.21"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.21.0",
+    "@babel/core": "^7.21.0",
+    "@babel/node": "^7.20.7",
+    "@babel/preset-env": "^7.20.2"
+  }
+}
