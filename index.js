@@ -1,11 +1,19 @@
 import express, { response } from "express";
 import connection from "./db.js";
 import data from "./data/mock.json" assert { type: "json" };
+import { WeightLoss } from "./controllers/weightLossController.js";
+// import Employees from "./controllers/employees";
+import routes from "./routes/crmRoutes.js";
+import weightLossRoutes from "./routes/weightLossRoutes.js";
 const app = express();
 
 const PORT = 4001;
 
+weightLossRoutes(app);
+
 // connection.end();
+
+// let wl = new WeightLoss();
 
 // using public folder at root for files
 app.use(express.static("public"));
