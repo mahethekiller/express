@@ -1,15 +1,26 @@
-import express, { response } from "express";
-import connection from "./db.js";
-import data from "./data/mock.json" assert { type: "json" };
+import express from "express";
+import connection from "./db";
+import path from "path";
+import cors from "cors";
+import corsOptions from "./config/corsOptions";
+import errorHandler from "./middleware/errorHandler";
+// import data from "./data/mock.json" assert { type: "json" };
 import { WeightLoss } from "./controllers/weightLossController.js";
 // import Employees from "./controllers/employees";
-import routes from "./routes/crmRoutes.js";
+import empRouter from "./routes/employeesRouter";
 import weightLossRoutes from "./routes/weightLossRoutes.js";
+import loginRouter from "./routes/loginRouter";
 const app = express();
 
-const PORT = 4001;
+const PORT = process.env.PORT || 4001;
 
-weightLossRoutes(app);
+// CORS cross origin
+
+app.use(cors(corsOptions));
+// CORS
+
+app.use("/employees", empRouter);
+app.use("/login", loginRouter);
 
 // connection.end();
 
@@ -23,40 +34,6 @@ app.use("/images", express.static("images"));
 // using express. json and express. url encoded
 // app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-// POST- express.json and express.urlencoded
-app.post("/item", (req, res) => {
-  console.log(req.body);
-  res.send(req.body);
-});
-
-// Get
-app.get("/", (request, response) => {
-  connection.query("SELECT * FROM announcement_submissions ", (err, rows, fields) => {
-    if (err) {
-      //   throw err;
-      response.json(err);
-    }
-
-    rows.map((row) => {
-      console.log(row.name);
-    });
-    response.json(rows);
-  });
-});
-
-// Get with next
-
-app.get(
-  "/next",
-  (request, response, next) => {
-    console.log("Req will be sent by next function");
-    next();
-  },
-  (request, response) => {
-    response.send("I just setup a route with a secont callback.");
-  }
-);
 
 // GET Download Method
 
@@ -72,13 +49,13 @@ app.get("/redirect", (req, res) => {
 
 // Get with routing params
 
-app.get("/class/:id", (req, res) => {
-  // MIDDLEWARE: Access the routing parameters
-  const studentId = Number(req.params.id);
-  const student = data.filter((student) => student.id === studentId);
-  //   Everithing above this line is middleware
-  res.send(student);
-});
+// app.get("/class/:id", (req, res) => {
+//   // MIDDLEWARE: Access the routing parameters
+//   const studentId = Number(req.params.id);
+//   const student = data.filter((student) => student.id === studentId);
+//   //   Everithing above this line is middleware
+//   res.send(student);
+// });
 
 // Post
 app.post("/create", (request, response) => {
@@ -115,11 +92,18 @@ app.get("/error", (request, response) => {
   throw new Error();
 });
 
-app.use((err, req, res, next) => {
-  console.log(err.stack);
-  res.status(500).send("Something is broken");
+// 404
+app.all("*", (req, res) => {
+  res.status(404);
+  if (req.accepts("json")) {
+    res.json({ error: "404 Not found" });
+  } else {
+    res.type("txt").send("404 Not Fount");
+  }
 });
 
+// ERROR handler
+app.use(errorHandler);
 // ERROR handler
 
 app.listen(PORT, () => {
