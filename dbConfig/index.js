@@ -4,6 +4,9 @@ import { Sequelize } from "sequelize";
 const sequelizeDb = new Sequelize("hrsale", "root", "", {
   host: "localhost",
   dialect: "mysql",
+  define: {
+    timestamps: false,
+  },
 });
 
 export default sequelizeDb;

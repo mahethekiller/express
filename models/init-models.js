@@ -168,11 +168,20 @@ import _xin_users from "./xin_users.js";
 import _xin_warning_type from "./xin_warning_type.js";
 
 export default function initModels(sequelize) {
-  const announcement_submissions = _announcement_submissions.init(sequelize, DataTypes);
+  const announcement_submissions = _announcement_submissions.init(
+    sequelize,
+    DataTypes
+  );
   const child_hood_images = _child_hood_images.init(sequelize, DataTypes);
   const ci_sessions = _ci_sessions.init(sequelize, DataTypes);
-  const conference_room_bookings = _conference_room_bookings.init(sequelize, DataTypes);
-  const designation_change_details = _designation_change_details.init(sequelize, DataTypes);
+  const conference_room_bookings = _conference_room_bookings.init(
+    sequelize,
+    DataTypes
+  );
+  const designation_change_details = _designation_change_details.init(
+    sequelize,
+    DataTypes
+  );
   const emp_vendors = _emp_vendors.init(sequelize, DataTypes);
   const rejoin_emp_data = _rejoin_emp_data.init(sequelize, DataTypes);
   const weight_loss = _weight_loss.init(sequelize, DataTypes);
@@ -181,7 +190,10 @@ export default function initModels(sequelize) {
   const xin_albums = _xin_albums.init(sequelize, DataTypes);
   const xin_announcements = _xin_announcements.init(sequelize, DataTypes);
   const xin_assets = _xin_assets.init(sequelize, DataTypes);
-  const xin_assets_categories = _xin_assets_categories.init(sequelize, DataTypes);
+  const xin_assets_categories = _xin_assets_categories.init(
+    sequelize,
+    DataTypes
+  );
   const xin_attendance_time = _xin_attendance_time.init(sequelize, DataTypes);
   const xin_award_type = _xin_award_type.init(sequelize, DataTypes);
   const xin_awards = _xin_awards.init(sequelize, DataTypes);
@@ -199,59 +211,174 @@ export default function initModels(sequelize) {
   const xin_database_backup = _xin_database_backup.init(sequelize, DataTypes);
   const xin_departments = _xin_departments.init(sequelize, DataTypes);
   const xin_designations = _xin_designations.init(sequelize, DataTypes);
-  const xin_disabled_employees = _xin_disabled_employees.init(sequelize, DataTypes);
+  const xin_disabled_employees = _xin_disabled_employees.init(
+    sequelize,
+    DataTypes
+  );
   const xin_document_type = _xin_document_type.init(sequelize, DataTypes);
   const xin_documents = _xin_documents.init(sequelize, DataTypes);
   const xin_documents_intern = _xin_documents_intern.init(sequelize, DataTypes);
   const xin_email_history = _xin_email_history.init(sequelize, DataTypes);
   const xin_email_template = _xin_email_template.init(sequelize, DataTypes);
-  const xin_emp_certificate_claim = _xin_emp_certificate_claim.init(sequelize, DataTypes);
+  const xin_emp_certificate_claim = _xin_emp_certificate_claim.init(
+    sequelize,
+    DataTypes
+  );
   const xin_emp_devices = _xin_emp_devices.init(sequelize, DataTypes);
   const xin_emp_health_ins = _xin_emp_health_ins.init(sequelize, DataTypes);
-  const xin_emp_today_attendance = _xin_emp_today_attendance.init(sequelize, DataTypes);
+  const xin_emp_today_attendance = _xin_emp_today_attendance.init(
+    sequelize,
+    DataTypes
+  );
   const xin_emp_verify = _xin_emp_verify.init(sequelize, DataTypes);
   const xin_emp_wishes = _xin_emp_wishes.init(sequelize, DataTypes);
-  const xin_employee_bankaccount = _xin_employee_bankaccount.init(sequelize, DataTypes);
-  const xin_employee_bankaccount_log = _xin_employee_bankaccount_log.init(sequelize, DataTypes);
-  const xin_employee_complaints = _xin_employee_complaints.init(sequelize, DataTypes);
-  const xin_employee_complaints_log = _xin_employee_complaints_log.init(sequelize, DataTypes);
-  const xin_employee_contacts = _xin_employee_contacts.init(sequelize, DataTypes);
-  const xin_employee_contacts_log = _xin_employee_contacts_log.init(sequelize, DataTypes);
-  const xin_employee_contract = _xin_employee_contract.init(sequelize, DataTypes);
-  const xin_employee_contract_log = _xin_employee_contract_log.init(sequelize, DataTypes);
-  const xin_employee_data_updates = _xin_employee_data_updates.init(sequelize, DataTypes);
-  const xin_employee_documents = _xin_employee_documents.init(sequelize, DataTypes);
-  const xin_employee_documents_log = _xin_employee_documents_log.init(sequelize, DataTypes);
+  const xin_employee_bankaccount = _xin_employee_bankaccount.init(
+    sequelize,
+    DataTypes
+  );
+  const xin_employee_bankaccount_log = _xin_employee_bankaccount_log.init(
+    sequelize,
+    DataTypes
+  );
+  const xin_employee_complaints = _xin_employee_complaints.init(
+    sequelize,
+    DataTypes
+  );
+  const xin_employee_complaints_log = _xin_employee_complaints_log.init(
+    sequelize,
+    DataTypes
+  );
+  const xin_employee_contacts = _xin_employee_contacts.init(
+    sequelize,
+    DataTypes
+  );
+  const xin_employee_contacts_log = _xin_employee_contacts_log.init(
+    sequelize,
+    DataTypes
+  );
+  const xin_employee_contract = _xin_employee_contract.init(
+    sequelize,
+    DataTypes
+  );
+  const xin_employee_contract_log = _xin_employee_contract_log.init(
+    sequelize,
+    DataTypes
+  );
+  const xin_employee_data_updates = _xin_employee_data_updates.init(
+    sequelize,
+    DataTypes
+  );
+  const xin_employee_documents = _xin_employee_documents.init(
+    sequelize,
+    DataTypes
+  );
+  const xin_employee_documents_log = _xin_employee_documents_log.init(
+    sequelize,
+    DataTypes
+  );
   const xin_employee_exit = _xin_employee_exit.init(sequelize, DataTypes);
-  const xin_employee_exit_log = _xin_employee_exit_log.init(sequelize, DataTypes);
-  const xin_employee_exit_type = _xin_employee_exit_type.init(sequelize, DataTypes);
-  const xin_employee_exit_type_log = _xin_employee_exit_type_log.init(sequelize, DataTypes);
-  const xin_employee_immigration = _xin_employee_immigration.init(sequelize, DataTypes);
-  const xin_employee_immigration_log = _xin_employee_immigration_log.init(sequelize, DataTypes);
+  const xin_employee_exit_log = _xin_employee_exit_log.init(
+    sequelize,
+    DataTypes
+  );
+  const xin_employee_exit_type = _xin_employee_exit_type.init(
+    sequelize,
+    DataTypes
+  );
+  const xin_employee_exit_type_log = _xin_employee_exit_type_log.init(
+    sequelize,
+    DataTypes
+  );
+  const xin_employee_immigration = _xin_employee_immigration.init(
+    sequelize,
+    DataTypes
+  );
+  const xin_employee_immigration_log = _xin_employee_immigration_log.init(
+    sequelize,
+    DataTypes
+  );
   const xin_employee_leave = _xin_employee_leave.init(sequelize, DataTypes);
-  const xin_employee_leave_log = _xin_employee_leave_log.init(sequelize, DataTypes);
-  const xin_employee_location = _xin_employee_location.init(sequelize, DataTypes);
-  const xin_employee_location_log = _xin_employee_location_log.init(sequelize, DataTypes);
-  const xin_employee_pre_data = _xin_employee_pre_data.init(sequelize, DataTypes);
-  const xin_employee_promotions = _xin_employee_promotions.init(sequelize, DataTypes);
-  const xin_employee_promotions_log = _xin_employee_promotions_log.init(sequelize, DataTypes);
-  const xin_employee_qualification = _xin_employee_qualification.init(sequelize, DataTypes);
-  const xin_employee_qualification_log = _xin_employee_qualification_log.init(sequelize, DataTypes);
-  const xin_employee_resignations = _xin_employee_resignations.init(sequelize, DataTypes);
-  const xin_employee_resignations_log = _xin_employee_resignations_log.init(sequelize, DataTypes);
+  const xin_employee_leave_log = _xin_employee_leave_log.init(
+    sequelize,
+    DataTypes
+  );
+  const xin_employee_location = _xin_employee_location.init(
+    sequelize,
+    DataTypes
+  );
+  const xin_employee_location_log = _xin_employee_location_log.init(
+    sequelize,
+    DataTypes
+  );
+  const xin_employee_pre_data = _xin_employee_pre_data.init(
+    sequelize,
+    DataTypes
+  );
+  const xin_employee_promotions = _xin_employee_promotions.init(
+    sequelize,
+    DataTypes
+  );
+  const xin_employee_promotions_log = _xin_employee_promotions_log.init(
+    sequelize,
+    DataTypes
+  );
+  const xin_employee_qualification = _xin_employee_qualification.init(
+    sequelize,
+    DataTypes
+  );
+  const xin_employee_qualification_log = _xin_employee_qualification_log.init(
+    sequelize,
+    DataTypes
+  );
+  const xin_employee_resignations = _xin_employee_resignations.init(
+    sequelize,
+    DataTypes
+  );
+  const xin_employee_resignations_log = _xin_employee_resignations_log.init(
+    sequelize,
+    DataTypes
+  );
   const xin_employee_salary = _xin_employee_salary.init(sequelize, DataTypes);
   const xin_employee_shift = _xin_employee_shift.init(sequelize, DataTypes);
-  const xin_employee_shift_log = _xin_employee_shift_log.init(sequelize, DataTypes);
-  const xin_employee_terminations = _xin_employee_terminations.init(sequelize, DataTypes);
-  const xin_employee_terminations_log = _xin_employee_terminations_log.init(sequelize, DataTypes);
-  const xin_employee_transfer = _xin_employee_transfer.init(sequelize, DataTypes);
-  const xin_employee_transfer_log = _xin_employee_transfer_log.init(sequelize, DataTypes);
+  const xin_employee_shift_log = _xin_employee_shift_log.init(
+    sequelize,
+    DataTypes
+  );
+  const xin_employee_terminations = _xin_employee_terminations.init(
+    sequelize,
+    DataTypes
+  );
+  const xin_employee_terminations_log = _xin_employee_terminations_log.init(
+    sequelize,
+    DataTypes
+  );
+  const xin_employee_transfer = _xin_employee_transfer.init(
+    sequelize,
+    DataTypes
+  );
+  const xin_employee_transfer_log = _xin_employee_transfer_log.init(
+    sequelize,
+    DataTypes
+  );
   const xin_employee_travels = _xin_employee_travels.init(sequelize, DataTypes);
-  const xin_employee_travels_log = _xin_employee_travels_log.init(sequelize, DataTypes);
-  const xin_employee_warnings = _xin_employee_warnings.init(sequelize, DataTypes);
-  const xin_employee_warnings_log = _xin_employee_warnings_log.init(sequelize, DataTypes);
-  const xin_employee_work_experience = _xin_employee_work_experience.init(sequelize, DataTypes);
-  const xin_employee_work_experience_log = _xin_employee_work_experience_log.init(sequelize, DataTypes);
+  const xin_employee_travels_log = _xin_employee_travels_log.init(
+    sequelize,
+    DataTypes
+  );
+  const xin_employee_warnings = _xin_employee_warnings.init(
+    sequelize,
+    DataTypes
+  );
+  const xin_employee_warnings_log = _xin_employee_warnings_log.init(
+    sequelize,
+    DataTypes
+  );
+  const xin_employee_work_experience = _xin_employee_work_experience.init(
+    sequelize,
+    DataTypes
+  );
+  const xin_employee_work_experience_log =
+    _xin_employee_work_experience_log.init(sequelize, DataTypes);
   const xin_employees = _xin_employees.init(sequelize, DataTypes);
   const xin_employees_log = _xin_employees_log.init(sequelize, DataTypes);
   const xin_employees_temp = _xin_employees_temp.init(sequelize, DataTypes);
@@ -259,40 +386,70 @@ export default function initModels(sequelize) {
   const xin_expense_type = _xin_expense_type.init(sequelize, DataTypes);
   const xin_expenses = _xin_expenses.init(sequelize, DataTypes);
   const xin_file_manager = _xin_file_manager.init(sequelize, DataTypes);
-  const xin_file_manager_settings = _xin_file_manager_settings.init(sequelize, DataTypes);
+  const xin_file_manager_settings = _xin_file_manager_settings.init(
+    sequelize,
+    DataTypes
+  );
   const xin_finance_bankcash = _xin_finance_bankcash.init(sequelize, DataTypes);
   const xin_finance_deposit = _xin_finance_deposit.init(sequelize, DataTypes);
   const xin_finance_expense = _xin_finance_expense.init(sequelize, DataTypes);
   const xin_finance_payees = _xin_finance_payees.init(sequelize, DataTypes);
   const xin_finance_payers = _xin_finance_payers.init(sequelize, DataTypes);
-  const xin_finance_transactions = _xin_finance_transactions.init(sequelize, DataTypes);
+  const xin_finance_transactions = _xin_finance_transactions.init(
+    sequelize,
+    DataTypes
+  );
   const xin_finance_transfer = _xin_finance_transfer.init(sequelize, DataTypes);
   const xin_goal_tracking = _xin_goal_tracking.init(sequelize, DataTypes);
-  const xin_goal_tracking_type = _xin_goal_tracking_type.init(sequelize, DataTypes);
+  const xin_goal_tracking_type = _xin_goal_tracking_type.init(
+    sequelize,
+    DataTypes
+  );
   const xin_holidays = _xin_holidays.init(sequelize, DataTypes);
   const xin_hourly_templates = _xin_hourly_templates.init(sequelize, DataTypes);
   const xin_hr_tickets = _xin_hr_tickets.init(sequelize, DataTypes);
   const xin_hrsale_invoices = _xin_hrsale_invoices.init(sequelize, DataTypes);
-  const xin_hrsale_invoices_items = _xin_hrsale_invoices_items.init(sequelize, DataTypes);
+  const xin_hrsale_invoices_items = _xin_hrsale_invoices_items.init(
+    sequelize,
+    DataTypes
+  );
   const xin_images = _xin_images.init(sequelize, DataTypes);
-  const xin_income_categories = _xin_income_categories.init(sequelize, DataTypes);
+  const xin_income_categories = _xin_income_categories.init(
+    sequelize,
+    DataTypes
+  );
   const xin_income_documents = _xin_income_documents.init(sequelize, DataTypes);
-  const xin_internal_job_posts = _xin_internal_job_posts.init(sequelize, DataTypes);
+  const xin_internal_job_posts = _xin_internal_job_posts.init(
+    sequelize,
+    DataTypes
+  );
   const xin_interns = _xin_interns.init(sequelize, DataTypes);
-  const xin_interview_reschedule = _xin_interview_reschedule.init(sequelize, DataTypes);
-  const xin_interview_salary_templates = _xin_interview_salary_templates.init(sequelize, DataTypes);
+  const xin_interview_reschedule = _xin_interview_reschedule.init(
+    sequelize,
+    DataTypes
+  );
+  const xin_interview_salary_templates = _xin_interview_salary_templates.init(
+    sequelize,
+    DataTypes
+  );
   const xin_interviews = _xin_interviews.init(sequelize, DataTypes);
   const xin_interviews_log = _xin_interviews_log.init(sequelize, DataTypes);
   const xin_job_applications = _xin_job_applications.init(sequelize, DataTypes);
   const xin_job_categories = _xin_job_categories.init(sequelize, DataTypes);
   const xin_job_codes = _xin_job_codes.init(sequelize, DataTypes);
   const xin_job_interviews = _xin_job_interviews.init(sequelize, DataTypes);
-  const xin_job_interviews_log = _xin_job_interviews_log.init(sequelize, DataTypes);
+  const xin_job_interviews_log = _xin_job_interviews_log.init(
+    sequelize,
+    DataTypes
+  );
   const xin_job_requests = _xin_job_requests.init(sequelize, DataTypes);
   const xin_job_type = _xin_job_type.init(sequelize, DataTypes);
   const xin_jobs = _xin_jobs.init(sequelize, DataTypes);
   const xin_languages = _xin_languages.init(sequelize, DataTypes);
-  const xin_leave_applications = _xin_leave_applications.init(sequelize, DataTypes);
+  const xin_leave_applications = _xin_leave_applications.init(
+    sequelize,
+    DataTypes
+  );
   const xin_leave_type = _xin_leave_type.init(sequelize, DataTypes);
   const xin_make_payment = _xin_make_payment.init(sequelize, DataTypes);
   const xin_med_claims = _xin_med_claims.init(sequelize, DataTypes);
@@ -300,23 +457,54 @@ export default function initModels(sequelize) {
   const xin_office_location = _xin_office_location.init(sequelize, DataTypes);
   const xin_office_shift = _xin_office_shift.init(sequelize, DataTypes);
   const xin_payment_method = _xin_payment_method.init(sequelize, DataTypes);
-  const xin_payroll_custom_fields = _xin_payroll_custom_fields.init(sequelize, DataTypes);
-  const xin_performance_appraisal = _xin_performance_appraisal.init(sequelize, DataTypes);
-  const xin_performance_indicator = _xin_performance_indicator.init(sequelize, DataTypes);
+  const xin_payroll_custom_fields = _xin_payroll_custom_fields.init(
+    sequelize,
+    DataTypes
+  );
+  const xin_performance_appraisal = _xin_performance_appraisal.init(
+    sequelize,
+    DataTypes
+  );
+  const xin_performance_indicator = _xin_performance_indicator.init(
+    sequelize,
+    DataTypes
+  );
   const xin_projects = _xin_projects.init(sequelize, DataTypes);
-  const xin_projects_attachment = _xin_projects_attachment.init(sequelize, DataTypes);
+  const xin_projects_attachment = _xin_projects_attachment.init(
+    sequelize,
+    DataTypes
+  );
   const xin_projects_bugs = _xin_projects_bugs.init(sequelize, DataTypes);
-  const xin_projects_discussion = _xin_projects_discussion.init(sequelize, DataTypes);
-  const xin_qualification_education_level = _xin_qualification_education_level.init(sequelize, DataTypes);
-  const xin_qualification_language = _xin_qualification_language.init(sequelize, DataTypes);
-  const xin_qualification_skill = _xin_qualification_skill.init(sequelize, DataTypes);
-  const xin_recruitment_pages = _xin_recruitment_pages.init(sequelize, DataTypes);
-  const xin_recruitment_subpages = _xin_recruitment_subpages.init(sequelize, DataTypes);
+  const xin_projects_discussion = _xin_projects_discussion.init(
+    sequelize,
+    DataTypes
+  );
+  const xin_qualification_education_level =
+    _xin_qualification_education_level.init(sequelize, DataTypes);
+  const xin_qualification_language = _xin_qualification_language.init(
+    sequelize,
+    DataTypes
+  );
+  const xin_qualification_skill = _xin_qualification_skill.init(
+    sequelize,
+    DataTypes
+  );
+  const xin_recruitment_pages = _xin_recruitment_pages.init(
+    sequelize,
+    DataTypes
+  );
+  const xin_recruitment_subpages = _xin_recruitment_subpages.init(
+    sequelize,
+    DataTypes
+  );
   const xin_referrals = _xin_referrals.init(sequelize, DataTypes);
   const xin_salary_templates = _xin_salary_templates.init(sequelize, DataTypes);
   const xin_select_fields = _xin_select_fields.init(sequelize, DataTypes);
   const xin_sub_departments = _xin_sub_departments.init(sequelize, DataTypes);
-  const xin_support_ticket_files = _xin_support_ticket_files.init(sequelize, DataTypes);
+  const xin_support_ticket_files = _xin_support_ticket_files.init(
+    sequelize,
+    DataTypes
+  );
   const xin_support_tickets = _xin_support_tickets.init(sequelize, DataTypes);
   const xin_system_setting = _xin_system_setting.init(sequelize, DataTypes);
   const xin_tasks = _xin_tasks.init(sequelize, DataTypes);
@@ -325,12 +513,18 @@ export default function initModels(sequelize) {
   const xin_tax_types = _xin_tax_types.init(sequelize, DataTypes);
   const xin_termination_type = _xin_termination_type.init(sequelize, DataTypes);
   const xin_theme_settings = _xin_theme_settings.init(sequelize, DataTypes);
-  const xin_tickets_attachment = _xin_tickets_attachment.init(sequelize, DataTypes);
+  const xin_tickets_attachment = _xin_tickets_attachment.init(
+    sequelize,
+    DataTypes
+  );
   const xin_tickets_comments = _xin_tickets_comments.init(sequelize, DataTypes);
   const xin_trainers = _xin_trainers.init(sequelize, DataTypes);
   const xin_training = _xin_training.init(sequelize, DataTypes);
   const xin_training_types = _xin_training_types.init(sequelize, DataTypes);
-  const xin_travel_arrangement_type = _xin_travel_arrangement_type.init(sequelize, DataTypes);
+  const xin_travel_arrangement_type = _xin_travel_arrangement_type.init(
+    sequelize,
+    DataTypes
+  );
   const xin_user_roles = _xin_user_roles.init(sequelize, DataTypes);
   const xin_users = _xin_users.init(sequelize, DataTypes);
   const xin_warning_type = _xin_warning_type.init(sequelize, DataTypes);

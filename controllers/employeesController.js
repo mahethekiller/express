@@ -1,6 +1,7 @@
 import connection from "../db";
 
 const getAllEmployees = (req, res) => {
+  console.log(req);
   connection.query("SELECT * FROM xin_employees", (err, rows, fields) => {
     if (err) {
       throw err;
@@ -11,17 +12,19 @@ const getAllEmployees = (req, res) => {
 };
 
 const addEmployee = (req, res) => {
-  connection.query("SELECT * FROM announcement_submissions ", (err, rows, fields) => {
-    if (err) {
-      //   throw err;
-      res.json(err);
+  connection.query(
+    "SELECT * FROM announcement_submissions ",
+    (err, rows, fields) => {
+      if (err) {
+        //   throw err;
+        res.json(err);
+      }
+      rows.map((row) => {
+        console.log(row.name);
+      });
+      res.json(rows);
     }
-
-    rows.map((row) => {
-      console.log(row.name);
-    });
-    res.json(rows);
-  });
+  );
 };
 
 const updateEmployee = (req, res) => {};

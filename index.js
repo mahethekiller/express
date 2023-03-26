@@ -4,11 +4,7 @@ import path from "path";
 import cors from "cors";
 import corsOptions from "./config/corsOptions";
 import errorHandler from "./middleware/errorHandler";
-// import data from "./data/mock.json" assert { type: "json" };
-import { WeightLoss } from "./controllers/weightLossController.js";
-// import Employees from "./controllers/employees";
 import empRouter from "./routes/employeesRouter";
-import weightLossRoutes from "./routes/weightLossRoutes.js";
 import loginRouter from "./routes/loginRouter";
 const app = express();
 
@@ -18,6 +14,10 @@ const PORT = process.env.PORT || 4001;
 
 app.use(cors(corsOptions));
 // CORS
+
+// using express. json and express. url encoded
+// app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.use("/employees", empRouter);
 app.use("/login", loginRouter);
@@ -30,10 +30,6 @@ app.use("/login", loginRouter);
 app.use(express.static("public"));
 // using images folder at root for files at route /images
 app.use("/images", express.static("images"));
-
-// using express. json and express. url encoded
-// app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
 // GET Download Method
 
