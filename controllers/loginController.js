@@ -1,40 +1,77 @@
-import connection from "../db";
 import bcrypt from "bcrypt";
 // import xin_employees from "../models/xin_employees";
 import _xin_employees from "../models/xin_employees";
 import sequelizeDb from "../dbConfig/index";
 import _sequelize from "sequelize";
+import path from "path";
+import jwt from "jsonwebtoken";
+import * as dotenv from "dotenv";
 
+dotenv.config();
+
+// const fspro
 const DataTypes = _sequelize.DataTypes;
 const xin_employees = _xin_employees.init(sequelizeDb, DataTypes);
 
 const Login = async (req, res) => {
-  // xin_employees = new xin_employees(sequelizeDb);
   const username = req.body.username;
   const password = req.body.password;
-  const saltRounds = 12;
-
-  // res.status(200).json({});
 
   if (!username || !password) {
-    return res
-      .status(400)
-      .json({ message: "Username and Password are required" });
+    return res.status(400).json({ message: "Username and Password are required" });
   }
 
   await xin_employees
     .findOne({ where: { username: username } })
     .then(function (user) {
       if (user) {
-        const login = bcrypt.compareSync(
+        const match = bcrypt.compareSync(
           password,
-          user.password.replace("$2y$", "$2a$")
+          user.password.replace("$2y$", "$2a$") //to match with ph bcrypt
         );
 
-        if (login) {
+        if (match) {
+          // JWT
+          // Access Token
+          const accessToken = jwt.sign(
+            {
+              username: user.username,
+            },
+            process.env.ACCESS_TOKEN_SECRET,
+            { expiresIn: "5m" }
+          );
+
+          // Refresh Token
+          const refreshToken = jwt.sign(
+            {
+              username: user.username,
+            },
+            process.env.REFRESH_TOKEN_SECRET,
+            { expiresIn: "1d" }
+          );
+
+          // save refresh token with user
+          try {
+            xin_employees.update(
+              {
+                refreshToken: refreshToken,
+              },
+              {
+                where: {
+                  user_id: user.user_id,
+                },
+              }
+            );
+          } catch (err) {
+            console.log(err);
+          }
+          // save refresh token with user
+          // JWT
+
+          res.cookie("jwt", refreshToken, { httpOnly: true, maxAge: 24 * 60 * 60 * 1000 /* One day */ });
+
           res.json({
-            result: user,
-            message: "Login successfull",
+            accessToken,
           });
         } else {
           res.status(401).json({

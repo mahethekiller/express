@@ -211,8 +211,7 @@ export default class xin_employees extends Model {
         is_active: {
           type: DataTypes.BOOLEAN,
           allowNull: false,
-          comment:
-            "1:Active 2:Terminated 3:Left 4:Abscond 5:Disable 0:Resigned",
+          comment: "1:Active 2:Terminated 3:Left 4:Abscond 5:Disable 0:Resigned",
         },
         last_login_date: {
           type: DataTypes.STRING(255),
@@ -361,6 +360,11 @@ export default class xin_employees extends Model {
         kra_doc: {
           type: DataTypes.STRING(200),
           allowNull: false,
+          defaultValue: "",
+        },
+        refreshToken: {
+          type: DataTypes.STRING(500),
+          allowNull: true,
           defaultValue: "",
         },
         notice_period: {

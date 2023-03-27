@@ -4,8 +4,12 @@ import path from "path";
 import cors from "cors";
 import corsOptions from "./config/corsOptions";
 import errorHandler from "./middleware/errorHandler";
+import verifyJWT from "./middleware/verifyJWT";
 import empRouter from "./routes/employeesRouter";
 import loginRouter from "./routes/loginRouter";
+import cookieParser from "cookie-parser";
+import refreshTokenRouter from "./routes/refresh";
+import logoutTokenRouter from "./routes/logout";
 const app = express();
 
 const PORT = process.env.PORT || 4001;
@@ -19,8 +23,27 @@ app.use(cors(corsOptions));
 // app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/employees", empRouter);
+// middleware for json data
+app.use(express.json());
+
+// middleware for cookies
+app.use(cookieParser());
+
+// without login routes
 app.use("/login", loginRouter);
+
+// without login routes
+
+// refresh token
+app.use("/refresh", refreshTokenRouter);
+// LOGOUT
+app.use("/logout", logoutTokenRouter);
+
+// after login routes
+app.use(verifyJWT);
+app.use("/employees", empRouter);
+
+// after login routes
 
 // connection.end();
 
