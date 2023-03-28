@@ -68,7 +68,7 @@ const Login = async (req, res) => {
           // save refresh token with user
           // JWT
 
-          res.cookie("jwt", refreshToken, { httpOnly: true, maxAge: 24 * 60 * 60 * 1000 /* One day */ });
+          res.cookie("jwt", refreshToken, { httpOnly: true, sameSite: "None", secure: true, maxAge: 24 * 60 * 60 * 1000 /* One day */ });
 
           res.json({
             accessToken,

@@ -10,9 +10,18 @@ import loginRouter from "./routes/loginRouter";
 import cookieParser from "cookie-parser";
 import refreshTokenRouter from "./routes/refresh";
 import logoutTokenRouter from "./routes/logout";
+import credentials from "./middleware/credentials";
+import { logger } from "./middleware/logEvents";
+
 const app = express();
 
 const PORT = process.env.PORT || 4001;
+
+app.use(logger);
+
+// handel options credential check - before cors
+// allow fetch cookies credentials requirement
+app.use(credentials);
 
 // CORS cross origin
 

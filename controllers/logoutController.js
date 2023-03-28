@@ -34,11 +34,11 @@ const handelLogout = (req, res) => {
           }
         );
 
-        res.clearCookie("jwt", { httpOnly: true }); //secure:true - add if https
+        res.clearCookie("jwt", { httpOnly: true, sameSite: "None", secure: true }); //secure:true - add if https
         res.sendStatus(204);
       } else {
         // throw err;
-        res.clearCookie("jwt", { httpOnly: true });
+        res.clearCookie("jwt", { httpOnly: true, sameSite: "None", secure: true });
         res.sendStatus(204);
       }
     })
