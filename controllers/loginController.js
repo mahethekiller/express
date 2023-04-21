@@ -72,6 +72,7 @@ const Login = async (req, res) => {
 
           res.json({
             accessToken,
+            user,
           });
         } else {
           res.status(401).json({
