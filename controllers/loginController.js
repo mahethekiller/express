@@ -18,7 +18,9 @@ const Login = async (req, res) => {
   const password = req.body.password;
 
   if (!username || !password) {
-    return res.status(400).json({ message: "Username and Password are required" });
+    return res
+      .status(400)
+      .json({ message: "Username and Password are required" });
   }
 
   await xin_employees
@@ -68,7 +70,12 @@ const Login = async (req, res) => {
           // save refresh token with user
           // JWT
 
-          res.cookie("jwt", refreshToken, { httpOnly: true, sameSite: "None", secure: true, maxAge: 24 * 60 * 60 * 1000 /* One day */ });
+          res.cookie("jwt", refreshToken, {
+            httpOnly: true,
+            sameSite: "None",
+            secure: true,
+            maxAge: 24 * 60 * 60 * 1000 /* One day */,
+          });
 
           res.json({
             accessToken,

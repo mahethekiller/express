@@ -8,3 +8,13 @@
 20230413	11:15:34	2cd94d18-d5a6-4845-8f9c-ee1d4c103e6d	Error: Not allowed by CORS
 20230413	11:16:12	cf83ae76-663c-4c2f-a8c9-1e6ed1444983	Error: Not allowed by CORS
 20230413	11:16:48	0040c0d4-cdcb-4678-970a-5d73f63fc31c	Error: Not allowed by CORShttp://localhost:3000
+20230426	15:55:23	9c25a08a-fe7e-4007-878e-dfd3a34949dc	ReferenceError: connection is not defined
+20230426	15:55:23	64f5881e-e874-4511-913e-321586b47e39	ReferenceError: connection is not defined
+20230426	15:56:27	61d05109-1d7a-4afe-aae4-f15d89b03275	ReferenceError: connection is not defined
+20230426	15:56:27	f89d6cf7-77f2-4ff1-a125-88ca323cfb10	ReferenceError: connection is not defined
+20230426	15:59:31	ea2c11a7-1c64-4bcc-ab23-25284df1e8bf	ReferenceError: connection is not defined
+20230426	15:59:31	2bbde487-2ac1-4aba-b247-deb4fb5f4941	ReferenceError: connection is not defined
+20230427	10:00:56	9f9a9cb7-db7e-4ece-a073-9e4a97070057	ReferenceError: Op is not defined
+20230427	10:00:56	c082a060-03a9-410d-90c3-e6a33e1df323	ReferenceError: Op is not defined
+20230427	10:02:10	858df1f1-49ef-4b35-96f0-76a9d5acc732	ReferenceError: Op is not defined
+20230427	10:02:10	8b07dd44-3564-43a3-9c80-81cab5ebc9c6	ReferenceError: Op is not defined
